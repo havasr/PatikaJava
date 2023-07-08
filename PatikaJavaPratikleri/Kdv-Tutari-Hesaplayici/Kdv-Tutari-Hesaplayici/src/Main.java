@@ -15,6 +15,7 @@ public class Main {
         }
         kdvTutari = fiyat * kdvOrani;
 
+
         System.out.println("KDV'li fiyat: " + (fiyat + kdvTutari));
         System.out.println("KDV tutarı: " + (kdvTutari));
 
