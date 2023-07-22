@@ -3,16 +3,16 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
 
-        int a = 0, digitNum = 0, numCount = 0;
+       Scanner input = new Scanner(System.in);
+        System.out.println("Please enter a number:");
+        int number = input.nextInt();
+        int digitNum = 0, digitValue = 0, sum = 0;
 
-        Scanner input = new Scanner(System.in);
-        a = input.nextInt();
-
-        while (a != 0) {
-            a /= 10;
-            numCount++;
+        while (number != 0){
+            digitValue = number % 10;
+            sum += digitValue;
+            number /= 10;
         }
-        digitNum = numCount;
-        System.out.println("Number of digits is: " + digitNum);
+        System.out.println("The sum of the digits is: " + sum);
     }
 }
