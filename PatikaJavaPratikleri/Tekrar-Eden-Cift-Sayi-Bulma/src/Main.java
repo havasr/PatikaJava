@@ -2,7 +2,7 @@ import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
-        int[] list = {10, 12, 53, 2, 5, 10, 12, 2, 2, 57, 83};
+        int[] list = {10, 12, 53, 3, 5, 10, 12, 3, 3, 57, 83};
         int[] duplicate = new int[list.length];
         int duplicateIndex = 0;
         boolean isDuplicate = false;
@@ -23,8 +23,10 @@ public class Main {
                     }
                 }
                 if (!alreadyExists) {
-                    duplicate[duplicateIndex] = list[i];
-                    duplicateIndex++;
+                    if (list[i]%2==0){
+                        duplicate[duplicateIndex] = list[i];
+                        duplicateIndex++;
+                    }
                 }
             }
         }
