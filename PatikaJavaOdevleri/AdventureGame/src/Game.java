@@ -10,7 +10,7 @@ public class Game {
         Player player = new Player(playerName);
         System.out.println("Welcome " + player.getName() + " !");
         System.out.println("Are you ready for a dark and misty adventure on this island?");
-        System.out.println("Choose your character to start: ");
+        System.out.println("Choose your character and enter their number to start: ");
         player.selectChar();
 
 
