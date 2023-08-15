@@ -18,7 +18,7 @@ public class Player {
     public void selectChar() {
         GameCharacter[] characterList = {new Samurai(), new Knight(), new Archer()};
 
-        System.out.println("-----------------------------------------------------------------");
+        System.out.println("-----------------------------------------------------------");
         for (int i = 0; i < characterList.length; i++) {
             System.out.println(i + 1 + "- " + characterList[i].getName() + " - Damage: " + characterList[i].getDamage()
                     + " Health: " + characterList[i].getHealth() + " Money: " + characterList[i].getMoney());
@@ -36,9 +36,30 @@ public class Player {
                 break;
             default:
                 initPlayer(new Samurai());
+                break;
         }
 
         System.out.println("Your character is " + this.characterName + "!");
+    }
+
+    public void selectLocation() {
+        Location location = null;
+        System.out.println("-----------------------------------------------------------");
+        Location[] locationList = {new SafeHouse(this), new ToolStore(this)};
+        System.out.println("Locations: ");
+        for (Location loc : locationList) {
+            System.out.println(loc.getId() + " - " + loc.getName());
+        }
+        System.out.println("Please select the location you want to go to.");
+
+        int selectLocation = input.nextInt();
+        for (Location loc2 : locationList) {
+            if (selectLocation == loc2.getId()) {
+                location = loc2;
+            }
+        }
+
+        location.onLocation();
     }
 
     public void initPlayer(GameCharacter gameCharacter) {
