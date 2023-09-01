@@ -7,11 +7,13 @@ public class Player {
     private int money;
     private String name;
     private String characterName;
+    private Inventory inventory;
     private Scanner input = new Scanner(System.in);
 
 
     public Player(String name) {
         this.name = name;
+        this.inventory = new Inventory();
     }
 
 
@@ -42,7 +44,7 @@ public class Player {
         System.out.println("Your character is " + this.characterName + "!");
     }
 
-    public void selectLocation() {
+    public Location selectLocation() {
         Location location = null;
         System.out.println("-----------------------------------------------------------");
         Location[] locationList = {new SafeHouse(this), new ToolStore(this)};
@@ -59,7 +61,7 @@ public class Player {
             }
         }
 
-        location.onLocation();
+        return location;
     }
 
     public void initPlayer(GameCharacter gameCharacter) {
@@ -83,6 +85,14 @@ public class Player {
 
     public void setHealth(int health) {
         this.health = health;
+    }
+
+    public Inventory getInventory() {
+        return inventory;
+    }
+
+    public void setInventory(Inventory inventory) {
+        this.inventory = inventory;
     }
 
     public int getMoney() {
